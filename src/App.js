@@ -42,19 +42,18 @@ function App() {
   
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxpDH_xO6bQ1DYv7z2qyFOeiGWKjPqu7POKF9-ZxamLqqM6cSB-EeBZoSmG1DJdKe5z7Q/exec", // Replace with the actual URL
+        "https://sheetdb.io/api/v1/wopmc44t7p1im", // Replace with your SheetDB endpoint
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(submission),
+          body: JSON.stringify({ data: [submission] }), // SheetDB requires data in this format
         }
       );
   
-      const result = await response.json();
-      if (result.status === "success") {
-        alert("Form submitted and email sent successfully!");
+      if (response.ok) {
+        alert("Form submitted successfully!");
       } else {
-        alert("Failed to submit form or send email.");
+        alert("Failed to submit form.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
