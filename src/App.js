@@ -42,7 +42,7 @@ function App() {
   
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxpDH_xO6bQ1DYv7z2qyFOeiGWKjPqu7POKF9-ZxamLqqM6cSB-EeBZoSmG1DJdKe5z7Q/exec", // Replace with actual URL
+        "https://script.google.com/macros/s/AKfycbxpDH_xO6bQ1DYv7z2qyFOeiGWKjPqu7POKF9-ZxamLqqM6cSB-EeBZoSmG1DJdKe5z7Q/exec", // Replace with the actual URL
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -62,8 +62,6 @@ function App() {
     }
   };
   
-  
-
   return (
     <div className="App">
       <h1>Code Submission Form</h1>
