@@ -38,22 +38,31 @@ function App() {
       college,
       language,
       code,
-      timestamp: new Date().toISOString(),
     };
-
+  
     try {
-      // Replace with your Google Apps Script Web App URL
-      const response = await axios.post(
-        'https://script.google.com/macros/s/AKfycbwWM78hFsLucA7lqH26IO0gmaHbR0kNXWnW5tgKwB6G1Mk5lOawnkxDNBNlcKpSQNPn/exec',
-        submission
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbxpDH_xO6bQ1DYv7z2qyFOeiGWKjPqu7POKF9-ZxamLqqM6cSB-EeBZoSmG1DJdKe5z7Q/exec", // Replace with actual URL
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submission),
+        }
       );
-      console.log('Submission successful:', response.data);
-      alert('Form submitted successfully!');
+  
+      const result = await response.json();
+      if (result.status === "success") {
+        alert("Email sent successfully!");
+      } else {
+        alert("Failed to send email.");
+      }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Form submission failed. Please try again.');
+      console.error("Error sending email:", error);
+      alert("Email sending failed. Please try again.");
     }
   };
+  
+  
 
   return (
     <div className="App">
