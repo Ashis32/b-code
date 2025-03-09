@@ -52,13 +52,13 @@ function App() {
   
       const result = await response.json();
       if (result.status === "success") {
-        alert("Email sent successfully!");
+        alert("Form submitted and email sent successfully!");
       } else {
-        alert("Failed to send email.");
+        alert("Failed to submit form or send email.");
       }
     } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Email sending failed. Please try again.");
+      console.error("Error submitting form:", error);
+      alert("Form submission failed. Please try again.");
     }
   };
   
