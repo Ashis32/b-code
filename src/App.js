@@ -149,8 +149,6 @@ function App() {
 
       {/* Footer */}
       <footer className="app-footer">
-        <br>
-        <br>
         <p>Made by Ashis Kumar Behura</p>
       </footer>
     </div>
