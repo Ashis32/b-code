@@ -31,38 +31,44 @@ function App() {
     };
   }, []);
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const submission = {
-    name,
-    college,
-    language,
-    code,
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Get the current date and time
+    const now = new Date();
+    const timestamp = now.toLocaleString(); // Format: "MM/DD/YYYY, HH:MM:SS AM/PM"
+
+    const submission = {
+      name,
+      college,
+      language,
+      code,
+      timestamp, // Add the timestamp to the submission
+    };
+
+    try {
+      const response = await axios.post(
+        "https://sheetdb.io/api/v1/lkbcorkrxy4x9", // Replace with your SheetDB endpoint
+        { data: submission }, // SheetDB expects the data to be wrapped in a "data" object
+        {
+          headers: {
+            Authorization: "Bearer YOUR_API_KEY", // Add your API key here
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        // 201 means "Created" in HTTP status codes
+        alert("Form submitted successfully!");
+      } else {
+        alert("Failed to submit form.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Form submission failed. Please try again.");
+    }
   };
 
-  try {
-    const response = await axios.post(
-      "https://sheetdb.io/api/v1/lkbcorkrxy4x9", // Replace with your SheetDB endpoint
-      { data: submission }, // SheetDB expects the data to be wrapped in a "data" object
-      {
-        headers: {
-          Authorization: "Bearer YOUR_API_KEY", // Add your API key here
-        },
-      }
-    );
-
-    if (response.status === 201) {
-      // 201 means "Created" in HTTP status codes
-      alert("Form submitted successfully!");
-    } else {
-      alert("Failed to submit form.");
-    }
-  } catch (error) {
-    console.error("Error submitting form:", error);
-    alert("Form submission failed. Please try again.");
-  }
-};
-  
   return (
     <div className="App">
       <h1>Code Submission Form</h1>
