@@ -41,16 +41,12 @@ function App() {
     };
   
     try {
-      const response = await fetch(
-        "https://sheetdb.io/api/v1/wopmc44t7p1im", // Replace with your SheetDB endpoint
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ data: [submission] }), // SheetDB requires data in this format
-        }
+      const response = await axios.post(
+        "https://sheetdb.io/api/v1/j3z51o5pb3cl5", // Replace with your SheetDB endpoint
+        { data: submission } // SheetDB expects the data to be wrapped in a "data" object
       );
   
-      if (response.ok) {
+      if (response.status === 201) { // 201 means "Created" in HTTP status codes
         alert("Form submitted successfully!");
       } else {
         alert("Failed to submit form.");
