@@ -78,7 +78,7 @@ function App() {
 
       {/* Main Form */}
       <div className="form-container">
-        <h2>Code Submission Form</h2>
+        <h2>Blind Code APP BY CODEX CREW</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Name:</label>
@@ -149,6 +149,8 @@ function App() {
 
       {/* Footer */}
       <footer className="app-footer">
+        <br>
+        <br>
         <p>Made by Ashis Kumar Behura</p>
       </footer>
     </div>
