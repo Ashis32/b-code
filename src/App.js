@@ -48,7 +48,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "https://sheetdb.io/api/v1/lkbcorkrxy4x9", // Replace with your SheetDB endpoint
+        "https://sheetdb.io/api/v1/nup6kqs8tkfw5", // Replace with your SheetDB endpoint
         { data: submission }, // SheetDB expects the data to be wrapped in a "data" object
         {
           headers: {
