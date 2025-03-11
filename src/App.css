@@ -89,31 +89,3 @@ button:hover {
 .question-text strong {
   color: #00ff88;
 }
-/* App.css */
-.app-header {
-  background-color: #282c34;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.form-container {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.app-footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #282c34;
-  color: white;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
